@@ -15,7 +15,6 @@
  */
 package io.agentscope.runtime.sandbox.tools.base;
 
-import io.agentscope.runtime.sandbox.box.BaseSandbox;
 import io.agentscope.runtime.sandbox.box.Sandbox;
 import io.agentscope.runtime.sandbox.tools.SandboxTool;
 import org.slf4j.Logger;
@@ -56,12 +55,9 @@ public class RunShellCommandTool extends BaseSandboxTool {
     public String run_shell_command(String command) {
         try {
             logger.info("Run Shell Command: {}", command);
-            if(sandbox instanceof BaseSandbox baseSandbox){
-                String result = baseSandbox.runShellCommand(command);
-                logger.info("Execute Result: {}", result);
-                return result;
-            }
-            throw new RuntimeException("Only BaseSandbox supported in run shell command tool");
+            String result = sandbox.runShellCommand(command);
+            logger.info("Execute Result: {}", result);
+            return result;
         } catch (Exception e) {
             String errorMsg = "Run Shell Command Error: " + e.getMessage();
             logger.error(errorMsg);

@@ -21,7 +21,6 @@ import io.agentscope.runtime.sandbox.manager.fs.FileSystemConfig;
 import io.agentscope.runtime.sandbox.manager.fs.local.LocalFileSystemConfig;
 import io.agentscope.runtime.sandbox.manager.registry.RegisterSandbox;
 
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -70,22 +69,22 @@ public class BaseSandbox extends Sandbox {
         super(managerApi, userId, sessionId, "base", fileSystemConfig, environment);
     }
 
-    /**
-     * Execute IPython code
-     */
-    public String runIpythonCell(String code) {
-        Map<String, Object> arguments = new HashMap<>();
-        arguments.put("code", code);
-        return callTool("run_ipython_cell", arguments);
-    }
-
-    /**
-     * Execute shell command
-     */
-    public String runShellCommand(String command) {
-        Map<String, Object> arguments = new HashMap<>();
-        arguments.put("command", command);
-        return callTool("run_shell_command", arguments);
-    }
+    // /**
+    //  * Execute IPython code
+    //  */
+    // public String runIpythonCell(String code) {
+    //     Map<String, Object> arguments = new HashMap<>();
+    //     arguments.put("code", code);
+    //     return callTool("run_ipython_cell", arguments);
+    // }
+    //
+    // /**
+    //  * Execute shell command
+    //  */
+    // public String runShellCommand(String command) {
+    //     Map<String, Object> arguments = new HashMap<>();
+    //     arguments.put("command", command);
+    //     return callTool("run_shell_command", arguments);
+    // }
 }
 

@@ -204,4 +204,22 @@ public class Sandbox implements AutoCloseable {
     public boolean isClosed() {
         return closed;
     }
+
+    /**
+     * Execute IPython code
+     */
+    public String runIpythonCell(String code) {
+        Map<String, Object> arguments = new HashMap<>();
+        arguments.put("code", code);
+        return callTool("run_ipython_cell", arguments);
+    }
+
+    /**
+     * Execute shell command
+     */
+    public String runShellCommand(String command) {
+        Map<String, Object> arguments = new HashMap<>();
+        arguments.put("command", command);
+        return callTool("run_shell_command", arguments);
+    }
 }

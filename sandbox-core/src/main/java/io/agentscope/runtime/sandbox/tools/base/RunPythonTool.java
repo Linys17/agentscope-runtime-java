@@ -16,7 +16,6 @@
 
 package io.agentscope.runtime.sandbox.tools.base;
 
-import io.agentscope.runtime.sandbox.box.BaseSandbox;
 import io.agentscope.runtime.sandbox.box.Sandbox;
 import io.agentscope.runtime.sandbox.tools.SandboxTool;
 import org.slf4j.Logger;
@@ -56,10 +55,7 @@ public class RunPythonTool extends BaseSandboxTool {
 
     public String run_ipython_cell(String code) {
         try {
-            if(sandbox instanceof BaseSandbox baseSandbox){
-                return baseSandbox.runIpythonCell(code);
-            }
-            throw new RuntimeException("Only BaseSandbox supported in run python tool");
+            return sandbox.runIpythonCell(code);
         } catch (Exception e) {
             String errorMsg = "Run Python Code Error: " + e.getMessage();
             logger.error(errorMsg);

@@ -27,7 +27,7 @@ public class Main {
     public static void main(String[] args) {
         BaseClientStarter clientConfig = DockerClientStarter.builder().build();
         ManagerConfig managerConfig = ManagerConfig.builder()
-                .clientConfig(clientConfig)
+                .clientStarter(clientConfig)
                 .build();
         SandboxService sandboxService = new SandboxService(managerConfig);
         sandboxService.start();
