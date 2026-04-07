@@ -247,7 +247,7 @@ public class SandboxService implements AutoCloseable {
         if (!file.exists()) {
             boolean ignored = file.mkdirs();
         }
-        String storagePath = sandbox.getFileSystemConfig().getStorageFolderPath();
+        String storagePath = fileSystemConfig.getStorageFolderPath();
         // Todo：Currently using global storage path if not provided, still need to wait for next movement of python version
         if (!mountDir.isEmpty() && !storagePath.isEmpty() && containerClientType != ContainerClientType.AGENTRUN && containerClientType != ContainerClientType.FC) {
             logger.info("Downloading from storage path: {} to mount dir: {}", storagePath, mountDir);
